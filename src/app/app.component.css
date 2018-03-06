@@ -1,0 +1,32 @@
+/*
+
+Colors :
+
+gold - #A37440; 163 116 64
+gold-light  - #DAAD71; 218 173 113
+blue - #0D1D32;
+teal - #6FA5A0; 111 165 160
+light-teal - #B5D9D6; 181 217 214
+(111, 165, 160, 0.9)
+#060d17 6 13 23
+#02060a 2 6 10
+*/
+
+body {
+    color: rgb(80, 80, 80);
+    
+}
+
+.box-background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    
+}
+
+
+.box {
+    padding: 20px;
+}

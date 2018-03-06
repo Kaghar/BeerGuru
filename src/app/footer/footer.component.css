@@ -1,0 +1,41 @@
+.footer {
+    
+    border-top: 3px solid #DAAD71;
+    
+    background-image: linear-gradient(rgba(2,6,10, 0.9), rgba(2,6,10, 0.9)), url(img/paper.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    
+}
+
+.copy{
+    padding: 10px;
+    font-size: 10px;
+    color: #DAAD71
+}
+
+.icon {
+    padding: 10px;
+    color: #DAAD71;
+}
+
+@media only screen and (max-width: 768px) {
+   .footer {
+       height: 8%;
+       border-top: 1.5px solid #DAAD71;
+   }
+   .icon {
+       padding: 5px;
+       transform: scale(0.7)
+   }
+   .copy{
+       padding: 5px;
+       transform: scale(0.7)
+   }
+}
+
+.logo {
+    display:none;
+}

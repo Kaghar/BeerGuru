@@ -1,0 +1,66 @@
+<div class="row query-helper" >
+    <app-header></app-header>
+    
+    
+    <div class="beers">
+        <div class="beer-list">
+            <div id="{{beer.id}}"
+                 class="beer-item" 
+                 (click)="checkId($event)"
+                 *ngFor="let beer of beers">
+                <img    id="{{beer.id}}"
+                        src="{{beer.image_url}}" 
+                        alt="beer photo" 
+                        class="beer-item-img">
+                <p id="{{beer.id}}" class="beer-item-name">{{ beer.name }}</p>
+                <p id="{{beer.id}}" class="beer-item-tag">{{beer.tagline}}</p>
+            </div>
+        </div>
+        <div
+            infiniteScroll
+            [infiniteScrollDistance]="2"
+            [infiniteScrollThrottle]="1000"
+            (scrolled)="onScroll()">
+        </div>
+        
+        <div  *ngIf="clicked" (click)="disableView()">
+            <div class="currentBeerBox">
+                <img src="{{currentBeer.image_url}}" alt="Beer Image" class="detailBox-beerImg">
+                <div class="detailBox">
+                    <p class="detailBox-name">{{currentBeer.name}}</p>
+                    <p class="detailBox-tag">{{currentBeer.tagline}}</p>
+                    <p class="detailBox-desc">{{currentBeer.description}}</p>
+                    <p class="detailBox-brewTips">Brewers tips: <span class="detailBox-tips">{{currentBeer.brewers_tips}}</span></p>
+                    <p class="detailBox-ibu">Ibu: <span class="detailBox-ibuName">{{currentBeer.ibu}}</span>&nbsp; 	&nbsp; 	&nbsp;<span class="detailBox-abu">Abv: </span><span class="detailBox-abuName">{{currentBeer.abv}}</span></p>
+                    <p class="detailBox-like">Maybe try some of those? <span class="arrow">&darr;</span></p>
+                    
+                </div>
+                <div class="moreBeerBox" >
+                    <div class="moreBeerBox-item" *ngFor="let moreIbuBeer of moreIbuBeer">
+                        <p class="moreBeerBox-item-name"> {{moreIbuBeer.name}}</p>
+                        <p class="moreBeerBox-item-tagline">{{moreIbuBeer.tagline}}</p>
+                        <img src="{{moreIbuBeer.image_url}}" alt="Beer Image" class="moreBeerBox-item-Img">
+                    </div>
+                    <div class="moreBeerBox-item" *ngFor="let lessIbuBeer of lessIbuBeer">
+                        <p class="moreBeerBox-item-name"> {{lessIbuBeer.name}}</p>
+                        <p class="moreBeerBox-item-tagline">{{lessIbuBeer.tagline}}</p>
+                        <img src="{{lessIbuBeer.image_url}}" alt="Beer Image" class="moreBeerBox-item-Img">
+                    </div>
+                    <div class="moreBeerBox-item" *ngFor="let randomBeer of randomBeer">
+                        <p class="moreBeerBox-item-name"> {{randomBeer.name}}</p>
+                        <p class="moreBeerBox-item-tagline">{{randomBeer.tagline}}</p>
+                        <img src="{{randomBeer.image_url}}" alt="Beer Image" class="moreBeerBox-item-Img">
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+</div>
+<app-spinner *ngIf="!finished" class="fixed-bottom spinner"></app-spinner>
+<div *ngIf="finished" class="finished" id="spin" (click)="dismiss()">
+    <span>Check twice, <span class="finished-gold">our collection is all you need.</span>  </span>
+</div>
+<app-footer>
+        
+</app-footer>
